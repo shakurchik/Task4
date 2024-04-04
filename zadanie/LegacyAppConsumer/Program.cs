@@ -7,9 +7,16 @@ namespace LegacyAppConsumer
     {
         static void Main(string[] args)
         {
-            var clientRepository = new ClientRepository();
-            var userCreditService = new UserCreditService();
-            var userService = new UserService(clientRepository, userCreditService);
+            /*
+             * DO NOT CHANGE THIS FILE AT ALL
+             */
+
+            var userService = new UserService();
+            var addResult = userService.AddUser("John", "Doe", "johndoe@gmail.com", DateTime.Parse("1982-03-21"), 1);
+            if (addResult)
+                Console.WriteLine($"Adding John Doe was successful");
+            else
+                Console.WriteLine($"Adding John Doe was unsuccessful");
         }
     }
 }

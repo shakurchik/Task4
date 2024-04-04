@@ -4,14 +4,10 @@ namespace LegacyApp
 {
     public class UserService
     {
-        private readonly IClientRepository _clientRepository;
-        private readonly IUserCreditService _userCreditService;
+        private readonly ClientRepository _clientRepository=new();
+        private readonly UserCreditService _userCreditService=new();
 
-        public UserService(IClientRepository clientRepository, IUserCreditService userCreditService)
-        {
-            _clientRepository = clientRepository;
-            _userCreditService = userCreditService;
-        }
+        
         public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
         {
             if (!IsValidUserInput(firstName, lastName, email, dateOfBirth)) return false;
